@@ -1,16 +1,14 @@
 // Містить основний шаблон та маршрути програми.
 // Тут імпортуються необхідні бібліотеки та компоненти, які будуть використовуватись у додатку.
-
 import React from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   Navigate,
   useLocation,
 } from "react-router-dom";
 import SignIn from "./components/SignIn";
-import Layout from "./components/Layout";
 import SpecificBook from "./components/SpecificBook";
 import BookList from "./components/BookList";
 import CartPage from "./components/CartPage";
@@ -25,14 +23,25 @@ const App = () => {
   const [username, setUsername] = React.useState("");
   const [cartItems, setCartItems] = React.useState([]);
 
+  React.useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
+    const username = localStorage.getItem("username");
+    setIsLoggedIn(loggedIn);
+    setUsername(username || "");
+  }, []);
+
   const handleSignIn = (username) => {
     setIsLoggedIn(true);
     setUsername(username);
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("username", username);
   };
 
   const handleSignOut = () => {
     setIsLoggedIn(false);
     setUsername("");
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("username");
     setCartItems([]);
   };
 
@@ -53,59 +62,58 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        <HeaderSelector
-          isLoggedIn={isLoggedIn}
-          username={username}
-          onSignOut={handleSignOut}
-          cartItems={cartItems}
-        />
-        <div className="main-content">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <SignIn
-                  setIsLoggedIn={setIsLoggedIn}
-                  setUsernameGlobal={setUsername}
-                />
-              }
-            />
-            <Route
-              path="/book-list"
-              element={
-                isLoggedIn ? (
-                  <BookList addToCart={addToCart} />
-                ) : (
-                  <Navigate to="/" />
-                )
-              }
-            />
-            <Route
-              path="/specific-book/:id"
-              element={
-                isLoggedIn ? (
-                  <SpecificBook addToCart={addToCart} />
-                ) : (
-                  <Navigate to="/" />
-                )
-              }
-            />
-            <Route
-              path="/cart"
-              element={
-                isLoggedIn ? (
-                  <CartPage cartItems={cartItems} setCartItems={setCartItems} />
-                ) : (
-                  <Navigate to="/" />
-                )
-              }
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-        <Footer />
+      <HeaderSelector
+        isLoggedIn={isLoggedIn}
+        username={username}
+        onSignOut={handleSignOut}
+        cartItems={cartItems}
+      />
+      <div className="main-content">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              isLoggedIn ? (
+                <Navigate to="/book-list" />
+              ) : (
+                <SignIn onSignIn={handleSignIn} />
+              )
+            }
+          />
+          <Route
+            path="/book-list"
+            element={
+              isLoggedIn ? (
+                <BookList addToCart={addToCart} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route
+            path="/specific-book/:id"
+            element={
+              isLoggedIn ? (
+                <SpecificBook addToCart={addToCart} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              isLoggedIn ? (
+                <CartPage cartItems={cartItems} setCartItems={setCartItems} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
+      <Footer />
     </Router>
   );
 };
