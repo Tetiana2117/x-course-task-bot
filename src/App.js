@@ -25,9 +25,9 @@ const App = () => {
 
   React.useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn") === "true";
-    const username = localStorage.getItem("username");
+    const storedUsername = localStorage.getItem("username");
     setIsLoggedIn(loggedIn);
-    setUsername(username || "");
+    setUsername(storedUsername || "");
   }, []);
 
   const handleSignIn = (username) => {
@@ -76,7 +76,10 @@ const App = () => {
               isLoggedIn ? (
                 <Navigate to="/book-list" />
               ) : (
-                <SignIn onSignIn={handleSignIn} />
+                <SignIn
+                  setIsLoggedIn={setIsLoggedIn}
+                  setUsernameGlobal={setUsername}
+                />
               )
             }
           />
