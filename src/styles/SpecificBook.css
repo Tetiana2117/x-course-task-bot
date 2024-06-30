@@ -1,0 +1,464 @@
+.book-container {
+  position: relative;
+  top: 10px;
+  margin: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.book-details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.book-description {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+  flex-basis: calc((100% - 120px) / 3);
+  flex-basis: 20%;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.book-image {
+  width: auto;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.book-info {
+  flex-basis: calc((100% - 120px) / 3);
+  justify-content: center;
+  flex-grow: 1;
+  padding: 0;
+}
+
+.book-info h2 {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.book-info p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.button-info {
+  background-color: #62a2be;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  min-width: 110px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.button-info:hover {
+  background-color: #4690b0;
+}
+
+.price-info {
+  flex-basis: calc((100% - 120px) / 3);
+  flex-basis: 15%;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+  text-align: right;
+}
+
+.price-info p {
+  font-size: 14px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.price-info label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.price-info input[type="number"] {
+  width: 50px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+.add-to-cart-button {
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  background-color: #62a2be;
+  color: #fff;
+  padding: 6px 10px;
+  min-width: 110px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.add-to-cart-button:hover {
+  background-color: #4690b0;
+}
+
+.book-container {
+  position: relative;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #e0e8eb;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+  text-align: center;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-content p {
+  line-height: 1.4;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.modal-book-image {
+  width: 150px;
+  height: 200px;
+  object-fit: cover; /* Збереження співвідношення сторін, обрізування за розміром контейнера */
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.cart-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-cart,
+.btn-back {
+  background-color: #62a2be;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  margin: 10px 100px;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.btn-cart:hover,
+.btn-out-back,
+.btn-back:hover {
+  background-color: #4690b0;
+}
+
+.out-of-stock {
+  background-color: #e0e8eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.btn-out-of-stock {
+  background-color: #df5f5f;
+  color: white;
+  border: none;
+  padding: 6px 6px;
+  min-width: 110px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+  margin-bottom: 10px;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: default; /* Курсор за замовчуванням показує, що це не інтерактивна кнопка */
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.btn-out-back {
+  background-color: #62a2be;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 6px 10px;
+  min-width: 110px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.btn-out-back:hover {
+  background-color: #4690b0;
+}
+
+@media (max-width: 767px) {
+  .book-container {
+    margin: 40px;
+  }
+
+  .book-info {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .book-details {
+    flex-direction: column;
+  }
+
+  .book-description,
+  .add-to-cart-button,
+  .book-info,
+  .price-info {
+    flex-basis: 100%;
+    text-align: center;
+    margin: 5px auto;
+    font-size: 12px;
+  }
+
+  .book-info p {
+    font-size: 12px;
+    line-height: 1;
+    text-align: justify;
+  }
+
+  .price-info {
+    text-align: center;
+    margin-top: 0;
+    padding-top: 5px;
+  }
+
+  .price-info p {
+    font-size: 12px;
+    line-height: 1;
+    margin: 0;
+    padding-top: 5px;
+  }
+  .modal-content {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .modal-content p {
+    line-height: 1;
+    font-size: 12px;
+  }
+
+  .modal-book-image {
+    width: 120px;
+    height: 160px;
+  }
+
+  .price-info label {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .out-of-stock {
+    margin-left: 0;
+    padding: 4px 0;
+  }
+
+  .btn-out-of-stock,
+  .btn-out-back {
+    padding: 5px 8px;
+    min-width: 100px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-image {
+    width: auto;
+    object-fit: contain;
+    height: 200px;
+  }
+
+  .book-info {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .book-description {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+  }
+
+  .button-info,
+  .add-to-cart-button,
+  .btn-cart,
+  .btn-back {
+    width: calc(100% - 40px);
+    margin: 5px auto;
+    font-size: 10px;
+  }
+
+  .book-info p {
+    font-size: 12px;
+    line-height: 1;
+    text-align: justify;
+  }
+
+  .price-info {
+    margin-top: 0;
+    padding-top: 5px;
+  }
+
+  .price-info p {
+    font-size: 12px;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .modal-content p {
+    line-height: 1;
+    font-size: 12px;
+  }
+
+  .modal-book-image {
+    width: 100px;
+    height: 140px;
+  }
+
+  .price-info label {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .out-of-stock {
+    margin-left: 0;
+    padding: 4px 0;
+  }
+
+  .btn-out-of-stock,
+  .btn-out-back {
+    padding: 4px 6px;
+    min-width: 90px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .book-image {
+    .book-image {
+      width: auto;
+      object-fit: contain;
+      height: 150px;
+    }
+  }
+
+  .book-info {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .button-info,
+  .add-to-cart-button,
+  .btn-cart,
+  .btn-back {
+    width: calc(100% - 20px);
+    margin: 5px auto;
+    font-size: 10px;
+  }
+
+  .price-info {
+    margin-top: 0;
+    padding-top: 5px;
+  }
+
+  .book-info p {
+    font-size: 10px;
+    line-height: 1;
+    text-align: justify;
+  }
+
+  .price-info p {
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 5px;
+  }
+
+  .modal-content p {
+    line-height: 1;
+    font-size: 12px;
+  }
+
+  .modal-book-image {
+    width: 80px;
+    height: 120px;
+  }
+
+  .price-info label {
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .out-of-stock {
+    margin-left: 0;
+    padding: 4px 0;
+  }
+
+  .btn-out-of-stock,
+  .btn-out-back {
+    padding: 3px 4px;
+    min-width: 80px;
+    font-size: 8px;
+  }
+}

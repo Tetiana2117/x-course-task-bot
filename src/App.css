@@ -1,0 +1,45 @@
+.app {
+  width: 100%; /* Ширина всього вікна браузера */
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  min-height: 100vh; /* Мінімальна висота на весь екран */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1200px; /* Максимальна ширина вмісту для обмеження ширини на великих екранах */
+  margin: 0 auto; /*Центрування контенту по центру екрану */
+  box-sizing: border-box;
+  flex: 1; /* Займає всю доступну висоту батька (.app) */
+  padding-top: 40px;
+  padding-bottom: 20px;
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .app {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+}

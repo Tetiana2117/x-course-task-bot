@@ -1,0 +1,175 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 100px);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 60px;
+  background-color: #f5f5f5;
+  font-size: 12px;
+}
+
+.form-wrapper {
+  padding: 10px 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.form-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin: 5px auto;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.user-name {
+  margin-top: 10px;
+  font-size: 1em;
+  text-align: center;
+  color: #333;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-name-field {
+  width: 180px;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.input-field {
+  width: 180px;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.signin-button {
+  width: 200px;
+  padding: 6px 10px;
+  margin-top: 10px;
+  background-color: #62a2be;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.signin-button:hover {
+  background-color: #4690b0;
+}
+
+.signin-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 14px;
+  height: auto;
+}
+
+.error-signin-message {
+  color: red;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  font-size: 10px;
+  opacity: 1;
+}
+
+/* Видалення іконки очі за замовчуванням */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+.password-input-wrapper {
+  position: relative;
+  width: 200px;
+  padding: 6px 0;
+  height: 30px;
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper input[type="password"] {
+  -webkit-text-security: disc; /* Приховати стандартну іконку в деяких браузерах */
+}
+
+.password-input-wrapper input[type="text"] {
+  -webkit-text-security: none; /* Відобразити текст для введення тексту */
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin-bottom: 0;
+    padding-bottom: 3cap;
+  }
+
+  .form-avatar {
+    width: 200px;
+    height: 200px;
+  }
+
+  .form-wrapper {
+    margin-top: 5px;
+    padding: 4px 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin-bottom: 0;
+    padding-bottom: 3cap;
+  }
+
+  .form-avatar {
+    width: 200px;
+    height: 200px;
+  }
+
+  .form-wrapper {
+    margin-top: 5px;
+    padding: 4px 4px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    margin-bottom: 0;
+    padding-bottom: 3cap;
+  }
+
+  .form-avatar {
+    width: 200px;
+    height: 200px;
+  }
+
+  .form-wrapper {
+    margin-top: 5px;
+    padding: 4px 4px;
+  }
+}

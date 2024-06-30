@@ -1,0 +1,24 @@
+.footer {
+  background-color: #62a2be;
+  color: white;
+  text-align: center;
+  box-shadow: 2px -4px 8px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer p {
+  font-size: 12px;
+}
+
+.footer-link {
+  font-weight: bold;
+  color: #38748e;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #2b576a;
+  text-decoration: underline;
+}

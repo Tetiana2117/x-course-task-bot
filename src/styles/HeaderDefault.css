@@ -1,0 +1,191 @@
+.header-default {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #62a2be;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+  color: white;
+  height: 60px;
+  display: flex;
+  align-items: center; /* Центрування контенту вертикально */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between; /* Центрування контенту горизонтально */
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  height: 100%;
+}
+
+.header-content h2 {
+  margin: 0;
+  font-size: 12px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Помістити всі елементи праворуч */
+  gap: 30px;
+}
+
+.cart-icon {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cart-count {
+  background-color: #df5f5f;
+  border-radius: 50%;
+  color: #fff;
+  padding: 4px;
+  font-size: 10px;
+  position: absolute;
+  top: 18px;
+  right: 380px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.user-info {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.header-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.username {
+  display: inline-block;
+  margin-left: 30px;
+  color: #fff;
+  width: 60px;
+  align-items: center;
+}
+
+.sign-out-button {
+  background-color: #df5f5f;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+  padding: 4px 6px;
+  min-width: 110px;
+  cursor: pointer;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.sign-out-button:hover {
+  background-color: #c35353;
+}
+
+/* @media (min-width: 1200px) {
+  .header-content h2 {
+    font-size: 12px;
+  }
+
+  .cart-icon {
+    font-size: 28px;
+  }
+
+  .user-info {
+    font-size: 12px;
+  }
+
+  .username {
+    font-size: 12px;
+    margin-left: 20px;
+  }
+
+  .sign-out-button {
+    padding: 4px 6px;
+    min-width: 110px;
+  }
+} */
+
+/* Середні екрани (від 768px до 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .header-content h2 {
+    font-size: 12px;
+  }
+
+  .cart-icon {
+    font-size: 26px;
+  }
+
+  .user-info {
+    font-size: 12px;
+  }
+
+  .username {
+    font-size: 12px;
+    margin-left: 15px;
+  }
+
+  .sign-out-button {
+    font-size: 12px;
+  }
+}
+
+/* Маленькі екрани (меньше 768px) */
+@media (max-width: 767px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-content h2 {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  .header-nav {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .cart-icon {
+    font-size: 22px;
+    margin-right: 0;
+  }
+
+  .cart-count {
+    top: 30px;
+    left: 42px;
+    width: 10px;
+    height: 10px;
+    font-size: 8px;
+  }
+
+  .user-info {
+    font-size: 10px;
+    margin-right: 0;
+  }
+
+  .username {
+    font-size: 10px;
+    margin-left: 5px;
+  }
+
+  .sign-out-button {
+    padding: 4px 6px;
+    min-width: 90px;
+    font-size: 10px;
+  }
+}
