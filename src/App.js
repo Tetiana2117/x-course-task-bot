@@ -1,7 +1,7 @@
 // Містить основний шаблон та маршрути програми.
 // Тут імпортуються необхідні бібліотеки та компоненти, які будуть використовуватись у додатку.
 
-import React, { useState } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -21,9 +21,9 @@ import NotFound from "./components/NotFound";
 import "./App.css";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
-  const [cartItems, setCartItems] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [username, setUsername] = React.useState("");
+  const [cartItems, setCartItems] = React.useState([]);
 
   const handleSignIn = (username) => {
     setIsLoggedIn(true);
@@ -53,57 +53,59 @@ const App = () => {
 
   return (
     <Router>
-      <HeaderSelector
-        isLoggedIn={isLoggedIn}
-        username={username}
-        onSignOut={handleSignOut}
-        cartItems={cartItems}
-      />
-      <div className="main-content">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <SignIn
-                setIsLoggedIn={setIsLoggedIn}
-                setUsernameGlobal={setUsername}
-              />
-            }
-          />
-          <Route
-            path="/book-list"
-            element={
-              isLoggedIn ? (
-                <BookList addToCart={addToCart} />
-              ) : (
-                <Navigate to="/" />
-              )
-            }
-          />
-          <Route
-            path="/specific-book/:id"
-            element={
-              isLoggedIn ? (
-                <SpecificBook addToCart={addToCart} />
-              ) : (
-                <Navigate to="/" />
-              )
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              isLoggedIn ? (
-                <CartPage cartItems={cartItems} setCartItems={setCartItems} />
-              ) : (
-                <Navigate to="/" />
-              )
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+      <div>
+        <HeaderSelector
+          isLoggedIn={isLoggedIn}
+          username={username}
+          onSignOut={handleSignOut}
+          cartItems={cartItems}
+        />
+        <div className="main-content">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <SignIn
+                  setIsLoggedIn={setIsLoggedIn}
+                  setUsernameGlobal={setUsername}
+                />
+              }
+            />
+            <Route
+              path="/book-list"
+              element={
+                isLoggedIn ? (
+                  <BookList addToCart={addToCart} />
+                ) : (
+                  <Navigate to="/" />
+                )
+              }
+            />
+            <Route
+              path="/specific-book/:id"
+              element={
+                isLoggedIn ? (
+                  <SpecificBook addToCart={addToCart} />
+                ) : (
+                  <Navigate to="/" />
+                )
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                isLoggedIn ? (
+                  <CartPage cartItems={cartItems} setCartItems={setCartItems} />
+                ) : (
+                  <Navigate to="/" />
+                )
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </Router>
   );
 };
@@ -111,18 +113,16 @@ const App = () => {
 const HeaderSelector = ({ isLoggedIn, username, onSignOut, cartItems }) => {
   const location = useLocation();
 
-  if (location.pathname === "/") {
-    return <HeaderLogin />;
-  } else {
-    return (
-      <HeaderDefault
-        username={username}
-        avatarUrl="/img/user.png"
-        onSignOut={onSignOut}
-        cartItems={cartItems}
-      />
-    );
-  }
+  return location.pathname === "/" ? (
+    <HeaderLogin />
+  ) : (
+    <HeaderDefault
+      username={username}
+      avatarUrl="/img/user.png"
+      onSignOut={onSignOut}
+      cartItems={cartItems}
+    />
+  );
 };
 
 export default App;
