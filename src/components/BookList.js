@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import booksData from "../books.json";
 import defaultImage from "../images/default-book-image.png";
 import "../styles/BookList.css";
 
@@ -14,21 +15,8 @@ const BookList = () => {
   const navigate = useNavigate(); // Хук useNavigate для програмної навігації
 
   useEffect(() => {
-    fetch("/books.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch books.");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setBooks(data.books);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
-        setLoading(false);
-      });
+    setBooks(booksData.books);
+    setLoading(false);
   }, []);
 
   const handleGoBack = () => {

@@ -160,4 +160,3 @@ const SpecificBook = ({ addToCart }) => {
 };
 
 export default SpecificBook;
-

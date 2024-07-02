@@ -2,14 +2,17 @@
 // Тут імпортуються необхідні бібліотеки та компоненти, які будуть використовуватись у додатку.
 import React from "react";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
   useLocation,
+  HashRouter,
 } from "react-router-dom";
 import SignIn from "./components/SignIn";
+import Layout from "./components/Layout";
 import SpecificBook from "./components/SpecificBook";
+import userAvatar from "./images/user.png";
 import BookList from "./components/BookList";
 import CartPage from "./components/CartPage";
 import HeaderLogin from "./components/HeaderLogin";
@@ -23,25 +26,14 @@ const App = () => {
   const [username, setUsername] = React.useState("");
   const [cartItems, setCartItems] = React.useState([]);
 
-  React.useEffect(() => {
-    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
-    const storedUsername = localStorage.getItem("username");
-    setIsLoggedIn(loggedIn);
-    setUsername(storedUsername || "");
-  }, []);
-
   const handleSignIn = (username) => {
     setIsLoggedIn(true);
     setUsername(username);
-    localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("username", username);
   };
 
   const handleSignOut = () => {
     setIsLoggedIn(false);
     setUsername("");
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("username");
     setCartItems([]);
   };
 
@@ -61,7 +53,7 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <HashRouter>
       <HeaderSelector
         isLoggedIn={isLoggedIn}
         username={username}
@@ -73,14 +65,10 @@ const App = () => {
           <Route
             path="/"
             element={
-              isLoggedIn ? (
-                <Navigate to="/book-list" />
-              ) : (
-                <SignIn
-                  setIsLoggedIn={setIsLoggedIn}
-                  setUsernameGlobal={setUsername}
-                />
-              )
+              <SignIn
+                setIsLoggedIn={setIsLoggedIn}
+                setUsernameGlobal={setUsername}
+              />
             }
           />
           <Route
@@ -117,7 +105,7 @@ const App = () => {
         </Routes>
       </div>
       <Footer />
-    </Router>
+    </HashRouter>
   );
 };
 
@@ -129,7 +117,7 @@ const HeaderSelector = ({ isLoggedIn, username, onSignOut, cartItems }) => {
   ) : (
     <HeaderDefault
       username={username}
-      avatarUrl="/img/user.png"
+      avatarUrl={userAvatar}
       onSignOut={onSignOut}
       cartItems={cartItems}
     />
