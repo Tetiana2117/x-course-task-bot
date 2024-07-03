@@ -1,18 +1,19 @@
-name: Deploy to GitHub Pages
+name: GitHub Pages Deploy
 
 on:
   push:
     branches:
-      - master # замените на вашу основную ветку
+      - master
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: "14"
@@ -27,4 +28,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build # путь к каталогу, который вы хотите развернуть
+          publish_dir: ./build
