@@ -4,7 +4,7 @@
 import React from "react";
 import HeaderLogin from "./HeaderLogin";
 import HeaderDefault from "./HeaderDefault";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 const Layout = ({ isLoggedIn, children }) => {
   return (

@@ -12,7 +12,7 @@ const BookList = () => {
   const [sortOption, setSortOption] = useState("");
   const [priceRange, setPriceRange] = useState("all");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const navigate = useNavigate(); // Хук useNavigate для програмної навігації
 
   useEffect(() => {

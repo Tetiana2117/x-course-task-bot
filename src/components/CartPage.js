@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Cart from "../components/Cart";
 import EmptyCart from "../components/EmptyCart";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "../styles/CartPage.css";
 
 const CartPage = ({ cartItems, setCartItems }) => {
   const [showCartMessage, setShowCartMessage] = useState(false);
-  const [addedItem, setAddedItem] = useState(null);
+  // const [addedItem, setAddedItem] = useState(null);
   const [message, setMessage] = useState("");
 
   useEffect(() => {

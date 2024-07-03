@@ -2,7 +2,7 @@
 // Тут імпортуються необхідні бібліотеки та компоненти, які будуть використовуватись у додатку.
 import React from "react";
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
@@ -10,7 +10,7 @@ import {
   HashRouter,
 } from "react-router-dom";
 import SignIn from "./components/SignIn";
-import Layout from "./components/Layout";
+// import Layout from "./components/Layout";
 import SpecificBook from "./components/SpecificBook";
 import userAvatar from "./images/user.png";
 import BookList from "./components/BookList";
