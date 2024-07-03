@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import booksData from "../books.json";
 import defaultImage from "../images/default-book-image.png";
+import searchIcon from "../images/icons8-magnifying-glass-16.png";
 import "../styles/BookList.css";
 
 const BookList = () => {
@@ -90,11 +91,7 @@ const BookList = () => {
             onChange={handleSearchChange}
             className="search-input"
           />
-          <img
-            src="/img/icons8-magnifying-glass-16.png"
-            alt="Search"
-            className="search-icon"
-          />
+          <img src={searchIcon} alt="Search" className="search-icon" />
         </div>
         <input
           type="number"

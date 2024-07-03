@@ -56,7 +56,7 @@
   color: white;
   border: none;
   padding: 6px 10px;
-  min-width: 110px;
+  min-width: 120px;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
@@ -104,7 +104,7 @@
   background-color: #62a2be;
   color: #fff;
   padding: 6px 10px;
-  min-width: 110px;
+  min-width: 120px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -112,6 +112,24 @@
 }
 
 .add-to-cart-button:hover {
+  background-color: #4690b0;
+}
+
+.back-button {
+  background-color: #62a2be;
+  color: #fff;
+  padding: 6px 5px;
+  width: 120px;
+  font-size: 12px;
+  height: 28px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+  margin-top: 10px;
+}
+
+.back-button:hover {
   background-color: #4690b0;
 }
 
@@ -253,6 +271,12 @@
     flex-direction: column;
   }
 
+  input[type="number"] {
+    -moz-appearance: number-input;
+    -webkit-appearance: number-input;
+    appearance: number-input;
+  }
+
   .book-description,
   .add-to-cart-button,
   .book-info,
@@ -261,6 +285,16 @@
     text-align: center;
     margin: 5px auto;
     font-size: 12px;
+    height: auto;
+  }
+
+  .back-button {
+    padding: 6px 5px;
+    flex-basis: 100%;
+    text-align: center;
+    margin: 5px auto;
+    font-size: 12px;
+    height: auto;
   }
 
   .book-info p {
@@ -273,6 +307,10 @@
     text-align: center;
     margin-top: 0;
     padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .price-info p {
@@ -292,8 +330,11 @@
   }
 
   .modal-book-image {
-    width: 120px;
-    height: 160px;
+    width: auto;
+    height: 200px;
+    object-fit: contain;
+    /* width: 120px;
+    height: 180px; */
   }
 
   .price-info label {
@@ -309,7 +350,7 @@
   .btn-out-of-stock,
   .btn-out-back {
     padding: 5px 8px;
-    min-width: 100px;
+    min-width: 70px;
     font-size: 12px;
   }
 }
@@ -318,7 +359,7 @@
   .book-image {
     width: auto;
     object-fit: contain;
-    height: 200px;
+    height: 220px;
   }
 
   .book-info {
@@ -334,6 +375,7 @@
 
   .button-info,
   .add-to-cart-button,
+  .back-button,
   .btn-cart,
   .btn-back {
     width: calc(100% - 40px);
@@ -350,6 +392,10 @@
   .price-info {
     margin-top: 0;
     padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .price-info p {
@@ -369,8 +415,11 @@
   }
 
   .modal-book-image {
-    width: 100px;
-    height: 140px;
+    width: auto;
+    height: 180px;
+    object-fit: contain;
+    /* width: 100px;
+    height: 160px; */
   }
 
   .price-info label {
@@ -386,18 +435,16 @@
   .btn-out-of-stock,
   .btn-out-back {
     padding: 4px 6px;
-    min-width: 90px;
+    min-width: 70px;
     font-size: 10px;
   }
 }
 
 @media (max-width: 320px) {
   .book-image {
-    .book-image {
-      width: auto;
-      object-fit: contain;
-      height: 150px;
-    }
+    width: auto;
+    object-fit: contain;
+    height: 150px;
   }
 
   .book-info {
@@ -407,6 +454,7 @@
 
   .button-info,
   .add-to-cart-button,
+  .back-button,
   .btn-cart,
   .btn-back {
     width: calc(100% - 20px);
@@ -417,6 +465,10 @@
   .price-info {
     margin-top: 0;
     padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .book-info p {
@@ -458,7 +510,7 @@
   .btn-out-of-stock,
   .btn-out-back {
     padding: 3px 4px;
-    min-width: 80px;
+    min-width: 50px;
     font-size: 8px;
   }
 }

@@ -142,6 +142,9 @@ const SpecificBook = ({ addToCart }) => {
               <button className="add-to-cart-button" onClick={handleAddToCart}>
                 Add to cart
               </button>
+              <button className="back-button" onClick={goBackToBooks}>
+                Go back to books
+              </button>
             </>
           ) : (
             <div className="out-of-stock">
