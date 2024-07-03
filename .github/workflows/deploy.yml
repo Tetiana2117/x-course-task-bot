@@ -13,16 +13,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
-          node-version: "20" # Установлено на 20
+          node-version: "20"
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: npm install
 
       - name: Build project
         run: npm run build
+
+      - name: Verify build output
+        run: ls -la ./build # Этот шаг проверит, что директория build существует и содержит файлы
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
