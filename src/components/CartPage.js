@@ -5,7 +5,7 @@ import EmptyCart from "../components/EmptyCart";
 import "../styles/CartPage.css";
 
 const CartPage = ({ cartItems, setCartItems }) => {
-  const [showCartMessage, setShowCartMessage] = useState(false);
+  // const [showCartMessage, setShowCartMessage] = useState(false);
   // const [addedItem, setAddedItem] = useState(null);
   const [message, setMessage] = useState("");
 

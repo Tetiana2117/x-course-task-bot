@@ -26,10 +26,10 @@ const App = () => {
   const [username, setUsername] = React.useState("");
   const [cartItems, setCartItems] = React.useState([]);
 
-  const handleSignIn = (username) => {
-    setIsLoggedIn(true);
-    setUsername(username);
-  };
+  // const handleSignIn = (username) => {
+  //   setIsLoggedIn(true);
+  //   setUsername(username);
+  // };
 
   const handleSignOut = () => {
     setIsLoggedIn(false);
