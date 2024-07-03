@@ -1,24 +1,24 @@
-name: GitHub Pages Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - master
+      - master # или ваша основная ветка
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Use Node.js 20
+      - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: "20"
+          node-version: 20
 
-      - name: Cache NPM dependencies
+      - name: Cache node modules
         uses: actions/cache@v3
         with:
           path: ~/.npm
@@ -32,11 +32,7 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Verify build output
-        run: ls -la ./build # Этот шаг проверит, что директория build существует и содержит файлы
-
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+        run: npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
