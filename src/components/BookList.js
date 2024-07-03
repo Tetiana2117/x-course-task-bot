@@ -12,20 +12,24 @@ const BookList = () => {
   const [sortOption, setSortOption] = useState("");
   const [priceRange, setPriceRange] = useState("all");
   const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Хук useNavigate для програмної навігації
+  const [error, setError] = useState(null); // Добавили состояние для ошибки
+  const navigate = useNavigate(); // Хук useNavigate для программной навигации
 
   useEffect(() => {
-    setBooks(booksData.books);
+    try {
+      setBooks(booksData.books);
+    } catch (err) {
+      setError(err.message); // Устанавливаем сообщение об ошибке
+    }
     setLoading(false);
   }, []);
 
   const handleGoBack = () => {
-    setSearchTerm(""); // Скидаємо значення поля пошуку
+    setSearchTerm(""); // Сбрасываем значение поля поиска
     setMaxPrice("");
     setSortOption("");
     setPriceRange("");
-    navigate("/book-list"); // Перенаправляємо на сторінку зі списком книг
+    navigate("/book-list"); // Перенаправляем на страницу со списком книг
   };
 
   const handleSearchChange = (event) => {
