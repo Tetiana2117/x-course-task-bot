@@ -257,6 +257,12 @@
   background-color: #4690b0;
 }
 
+input[type="number"] {
+  -moz-appearance: number-input; /* Firefox */
+  -webkit-appearance: number-input; /* Chrome, Safari */
+  appearance: number-input; /* Современные браузеры */
+}
+
 @media (max-width: 767px) {
   .book-container {
     margin: 40px;
