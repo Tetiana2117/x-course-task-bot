@@ -1,35 +1,31 @@
 name: Deploy
 
 on:
-  push: # Запуск действия при пуше
+  push:
     branches:
-      - master # Ветка, для которой это действие будет выполнено
+      - master
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest # Использование последней версии Ubuntu
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository # Шаг для клонирования репозитория
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js # Установка Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "20" # Версия Node.js (измените на необходимую вашему проекту)
+          node-version: "20"
 
-      - name: Install dependencies # Установка зависимостей
+      - name: Install dependencies
         run: npm install
 
-      - name: Build # Сборка проекта
+      - name: Build
         run: npm run build
 
-      - name: Configure Git # Конфигурация Git для деплоя
+      - name: Deploy to GitHub Pages
         run: |
           git config --global user.email "tanyatanya2117@gmail.com"
           git config --global user.name "Tetiana2117"
-
-      - name: Deploy to GitHub Pages # Деплой на GitHub Pages
-        run: npm run deploy
-        env:
-          CI: true
+          npx gh-pages -d build -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Tetiana2117/prometheus-x-course-task.git
