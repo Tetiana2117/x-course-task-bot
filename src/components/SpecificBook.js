@@ -57,6 +57,18 @@ const SpecificBook = ({ addToCart }) => {
     setShowCartMessage(true);
   };
 
+  const incrementQuantity = () => {
+    if (quantity < book.amount) {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const decrementQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   const goToCart = () => {
     setShowCartMessage(false);
     navigate("/cart");
@@ -127,6 +139,27 @@ const SpecificBook = ({ addToCart }) => {
           {book.amount > 0 ? (
             <>
               <label htmlFor="quantity">Count: </label>
+              <div className="quantity-control">
+                <button onClick={decrementQuantity} disabled={quantity <= 1}>
+                  -
+                </button>
+                <input
+                  type="number"
+                  id="quantity"
+                  min="1"
+                  max={book.amount}
+                  value={quantity}
+                  onChange={handleQuantityChange}
+                />
+                <button
+                  onClick={incrementQuantity}
+                  disabled={quantity >= book.amount}
+                >
+                  +
+                </button>
+              </div>
+
+              {/* <label htmlFor="quantity">Count: </label>
               <input
                 type="number"
                 id="quantity"
@@ -135,7 +168,7 @@ const SpecificBook = ({ addToCart }) => {
                 value={quantity}
                 onChange={handleQuantityChange}
                 onKeyDown={handleKeyDown}
-              />
+              /> */}
               <p>
                 <strong>Total price:</strong> ${totalPrice}
               </p>

@@ -93,6 +93,7 @@
   border: 1px solid #ddd;
   border-radius: 10px;
   text-align: center;
+  margin: 0 10px;
   box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
 }
 .add-to-cart-button {
@@ -250,17 +251,34 @@
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
-  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
 }
 
 .btn-out-back:hover {
   background-color: #4690b0;
 }
 
-input[type="number"] {
-  -moz-appearance: number-input; /* Firefox */
-  -webkit-appearance: number-input; /* Chrome, Safari */
-  appearance: number-input; /* Современные браузеры */
+.quantity-control {
+  margin: 6px 0;
+}
+
+.quantity-control button {
+  background-color: #62a2be;
+  color: white;
+  border: none;
+  width: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: 2px 4px 8px rgba(0.4, 0, 0, 0.4);
+}
+
+.quantity-control button:hover {
+  background-color: #4690b0;
+}
+
+.quantity-control button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 @media (max-width: 767px) {
@@ -277,11 +295,11 @@ input[type="number"] {
     flex-direction: column;
   }
 
-  input[type="number"] {
+  /* input[type="number"] {
     -moz-appearance: number-input;
     -webkit-appearance: number-input;
     appearance: number-input;
-  }
+  } */
 
   .book-description,
   .add-to-cart-button,
