@@ -1,35 +1,35 @@
 name: Deploy
 
 on:
-  push:
+  push: # Запуск действия при пуше
     branches:
-      - main
+      - master # Ветка, для которой это действие будет выполнено
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Использование последней версии Ubuntu
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository # Шаг для клонирования репозитория
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Set up Node.js # Установка Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "20" # Версия Node.js (измените на необходимую вашему проекту)
 
-      - name: Install dependencies
+      - name: Install dependencies # Установка зависимостей
         run: npm install
 
-      - name: Build
+      - name: Build # Сборка проекта
         run: npm run build
 
-      - name: Configure Git
+      - name: Configure Git # Конфигурация Git для деплоя
         run: |
           git config --global user.email "tanyatanya2117@gmail.com"
           git config --global user.name "Tetiana2117"
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages # Деплой на GitHub Pages
         run: npm run deploy
         env:
           CI: true
