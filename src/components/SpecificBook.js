@@ -154,6 +154,7 @@ const SpecificBook = ({ addToCart }) => {
                 <button
                   onClick={incrementQuantity}
                   disabled={quantity >= book.amount}
+                  onKeyDown={handleKeyDown}
                 >
                   +
                 </button>
