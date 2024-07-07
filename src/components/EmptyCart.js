@@ -15,7 +15,6 @@ const EmptyCart = () => {
       <div className="container-cart">
         <img
           src={emptyCartImage}
-          ы
           alt="Empty Cart"
           className="empty-cart-image"
         />
