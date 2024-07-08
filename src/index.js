@@ -1,17 +1,17 @@
-// Цей файл ініціалізує React-додаток, пов'язуючи його з елементом у DOM, до якого він буде прикріплений.
-
-import { StrictMode } from "react";
-// Компонент, який допомагає виявляти потенційні проблеми у програмі.
-
-import { createRoot } from "react-dom/client";
-// Метод із react-dom/client, який використовується для створення кореневого вузла для рендерингу React-додатка.
-
+import React from "react";
+import ReactDOM from "react-dom/client";
 import App from "./App";
-// Основний компонент програми, який містить всю логіку та інтерфейс користувача.
+import "./index.css";
 
-const root = createRoot(document.getElementById("root"));
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+const rootElement = document.getElementById("root");
+
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+} else {
+  console.error("Root element not found");
+}

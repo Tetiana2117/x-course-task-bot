@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Cart from "../components/Cart";
 import EmptyCart from "../components/EmptyCart";
 import "../styles/CartPage.css";
+import { sendTelegramMessage } from "../utils/telegram";
 
-const CartPage = ({ cartItems, setCartItems }) => {
+const CartPage = ({ cartItems, setCartItems, userName }) => {
   const [showCartMessage, setShowCartMessage] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -15,14 +16,35 @@ const CartPage = ({ cartItems, setCartItems }) => {
     setCartItems([]);
   };
 
-  const onPurchase = () => {
-    setMessage("Purchase was made!");
+  const onPurchase = async () => {
+    const orderDetails = cartItems
+      .map(
+        (item) =>
+          `*Title:* ${item.title}\n*Count:* ${item.quantity}\n*Price:* ${item.price} $`
+      )
+      .join("\n\n");
+
+    const totalAmount = cartItems
+      .reduce((total, item) => total + item.quantity * item.price, 0)
+      .toFixed(2); // Округлення  після коми
+
+    const messageContent = `A new order has arrived from User: *${userName}*:\n\n${orderDetails}\n\n*Total price:* ${totalAmount}$`;
+
+    setMessage("Your order has been processed!");
     clearCart();
     setShowCartMessage(true);
+
+    try {
+      await sendTelegramMessage(messageContent, "Markdown"); // синтаксис форматування
+      console.log("Message sent to Telegram");
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+
     setTimeout(() => {
       setShowCartMessage(false);
       setMessage("");
-    }, 3000); // Приховати повідомлення за 3 секунди
+    }, 3000);
   };
 
   const removeItem = (book) => {
