@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/prometheus-x-course-task/static/css/main.8ee5a736.chunk.css",
-    "main.js": "/prometheus-x-course-task/static/js/main.0d11e42f.chunk.js",
-    "main.js.map": "/prometheus-x-course-task/static/js/main.0d11e42f.chunk.js.map",
-    "runtime~main.js": "/prometheus-x-course-task/static/js/runtime~main.428cc78c.js",
-    "runtime~main.js.map": "/prometheus-x-course-task/static/js/runtime~main.428cc78c.js.map",
-    "static/js/2.94282274.chunk.js": "/prometheus-x-course-task/static/js/2.94282274.chunk.js",
-    "static/js/2.94282274.chunk.js.map": "/prometheus-x-course-task/static/js/2.94282274.chunk.js.map",
-    "index.html": "/prometheus-x-course-task/index.html",
-    "precache-manifest.cb796a5dc0a666391cadb8d27990a99f.js": "/prometheus-x-course-task/precache-manifest.cb796a5dc0a666391cadb8d27990a99f.js",
-    "service-worker.js": "/prometheus-x-course-task/service-worker.js",
-    "static/css/main.8ee5a736.chunk.css.map": "/prometheus-x-course-task/static/css/main.8ee5a736.chunk.css.map",
-    "static/media/avatar.png": "/prometheus-x-course-task/static/media/avatar.05667873.png",
-    "static/media/default-book-image.png": "/prometheus-x-course-task/static/media/default-book-image.4d7741df.png",
-    "static/media/empty-cart.png": "/prometheus-x-course-task/static/media/empty-cart.7a269d75.png"
+    "main.css": "/x-course-task-bot/static/css/main.8ee5a736.chunk.css",
+    "main.js": "/x-course-task-bot/static/js/main.0d11e42f.chunk.js",
+    "main.js.map": "/x-course-task-bot/static/js/main.0d11e42f.chunk.js.map",
+    "runtime~main.js": "/x-course-task-bot/static/js/runtime~main.02475db2.js",
+    "runtime~main.js.map": "/x-course-task-bot/static/js/runtime~main.02475db2.js.map",
+    "static/js/2.94282274.chunk.js": "/x-course-task-bot/static/js/2.94282274.chunk.js",
+    "static/js/2.94282274.chunk.js.map": "/x-course-task-bot/static/js/2.94282274.chunk.js.map",
+    "index.html": "/x-course-task-bot/index.html",
+    "precache-manifest.99408b3a09587aa3aa8553f4dc830162.js": "/x-course-task-bot/precache-manifest.99408b3a09587aa3aa8553f4dc830162.js",
+    "service-worker.js": "/x-course-task-bot/service-worker.js",
+    "static/css/main.8ee5a736.chunk.css.map": "/x-course-task-bot/static/css/main.8ee5a736.chunk.css.map",
+    "static/media/avatar.png": "/x-course-task-bot/static/media/avatar.05667873.png",
+    "static/media/default-book-image.png": "/x-course-task-bot/static/media/default-book-image.4d7741df.png",
+    "static/media/empty-cart.png": "/x-course-task-bot/static/media/empty-cart.7a269d75.png"
   }
 }
